@@ -54,6 +54,6 @@
     "styled-components": "^6.4.1"
   },
   "engines": {
-    "node": "18.x"
+    "node": "24.x"
   }
 }
