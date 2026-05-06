@@ -50,7 +50,10 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "prettier": "^2.8.4",
-    "react-router-dom": "^7.14.2",
+    "react-router-dom": "^7.15.0",
     "styled-components": "^6.4.1"
+  },
+  "engines": {
+    "node": "18.x"
   }
 }
