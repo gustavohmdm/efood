@@ -10,7 +10,7 @@ const foods: Food[] = [
     title: 'Pizza Marguerita',
     description:
       'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    button: 'Adicionar ao carrinho'
+    button: 'Mais detalhes'
   },
   {
     id: 2,
@@ -18,7 +18,7 @@ const foods: Food[] = [
     title: 'Pizza Marguerita',
     description:
       'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    button: 'Adicionar ao carrinho'
+    button: 'Mais detalhes'
   },
   {
     id: 3,
@@ -26,7 +26,7 @@ const foods: Food[] = [
     title: 'Pizza Marguerita',
     description:
       'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    button: 'Adicionar ao carrinho'
+    button: 'Mais detalhes'
   },
   {
     id: 4,
@@ -34,7 +34,7 @@ const foods: Food[] = [
     title: 'Pizza Marguerita',
     description:
       'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    button: 'Adicionar ao carrinho'
+    button: 'Mais detalhes'
   },
   {
     id: 5,
@@ -42,7 +42,7 @@ const foods: Food[] = [
     title: 'Pizza Marguerita',
     description:
       'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    button: 'Adicionar ao carrinho'
+    button: 'Mais detalhes'
   },
   {
     id: 6,
@@ -50,7 +50,7 @@ const foods: Food[] = [
     title: 'Pizza Marguerita',
     description:
       'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    button: 'Adicionar ao carrinho'
+    button: 'Mais detalhes'
   }
 ]
 

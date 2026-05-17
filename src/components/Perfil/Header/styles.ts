@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 export const BackgroundLogo = styled.div`
@@ -17,9 +18,10 @@ export const Logo = styled.img`
   margin-left: 84px;
 `
 
-export const Restaurants = styled.h2`
+export const ButtonHome = styled(Link)`
   font-size: 18px;
   font-weight: 900;
+  text-decoration: none;
   color: #e66767;
   cursor: pointer;
 `
