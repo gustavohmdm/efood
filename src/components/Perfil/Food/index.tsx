@@ -42,8 +42,8 @@ const Food = ({ image, title, description, price, portion }: Props) => {
   }
 
   const getDescricao = (descricao: string) => {
-    if (descricao.length > 152) {
-      return descricao.slice(0, 149) + '...'
+    if (descricao.length > 150) {
+      return descricao.slice(0, 147) + '...'
     }
     return descricao
   }
