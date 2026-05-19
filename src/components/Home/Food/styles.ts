@@ -5,6 +5,11 @@ export const Card = styled.div`
   position: relative;
   border: 1px solid #e66767;
 `
+
+export const Image = styled.img`
+  width: 472px;
+  height: 217px;
+`
 export const Infos = styled.div`
   position: absolute;
   top: 16px;
@@ -16,17 +21,24 @@ export const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 8px 8px 16px 8px;
+
+  div {
+    display: flex;
+    align-items: center;
+
+    p {
+      margin-right: 8px;
+      color: #e66767;
+      font-size: 18px;
+      font-weight: 700;
+    }
+  }
 `
 
 export const Title = styled.h2`
   font-size: 18px;
   font-weight: 700;
   color: #e66767;
-`
-
-export const Image = styled.img`
-  width: 55px;
-  height: 21px;
 `
 
 export const Description = styled.p`

@@ -1,23 +1,23 @@
-import FoodModel from '../models/Food'
+import { Restaurant } from '../../../pages/Home'
 import Food from '../Food'
 import { List } from './styles'
 
 export type Props = {
-  foods: FoodModel[]
+  restaurants: Restaurant[]
 }
 
-const FoodsList = ({ foods }: Props) => (
+const FoodsList = ({ restaurants }: Props) => (
   <List>
-    {foods.map((food, index) => (
+    {restaurants.map((restaurant) => (
       <Food
-        key={food.id}
-        category={food.category}
-        image={food.image}
-        title={food.title}
-        assessment={food.assessment}
-        description={food.description}
-        button={food.button}
-        isFirst={index === 0}
+        key={restaurant.id}
+        id={restaurant.id}
+        category={restaurant.tipo}
+        image={restaurant.capa}
+        title={restaurant.titulo}
+        assessment={restaurant.avaliacao}
+        description={restaurant.descricao}
+        isFeatured={restaurant.destacado}
       />
     ))}
   </List>

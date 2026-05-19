@@ -1,7 +1,7 @@
 import {
   BackgroundLogo,
   Logo,
-  Restaurants,
+  Button,
   Cart,
   Presentation,
   Category,
@@ -14,7 +14,7 @@ import efoodLogo from '../../../assets/images/logo.png'
 const Header = () => (
   <>
     <BackgroundLogo style={{ backgroundImage: `url(${backgroundLogo})` }}>
-      <Restaurants>Restaurantes</Restaurants>
+      <Button to="/">Restaurantes</Button>
       <Logo src={efoodLogo}></Logo>
       <Cart>0 produto(s) no carrinho</Cart>
     </BackgroundLogo>

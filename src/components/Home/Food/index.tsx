@@ -1,22 +1,25 @@
 import {
   Card,
+  Image,
   Container,
   Infos,
   Title,
-  Image,
   Description,
   Button
 } from './styles'
+
 import Tag from '../Tag'
+
+import starIcon from '../../../assets/images/star_favorite-[#1499].png'
 
 type Props = {
   image: string
   category: string
   title: string
-  assessment: string
+  assessment: number
   description: string
-  button: string
-  isFirst?: boolean
+  isFeatured?: boolean
+  id: number
 }
 
 const Food = ({
@@ -25,21 +28,24 @@ const Food = ({
   title,
   assessment,
   description,
-  button,
-  isFirst
+  isFeatured,
+  id
 }: Props) => (
   <Card>
-    <img src={image} alt={title} />
+    <Image src={image} alt={title} />
     <Infos>
-      {isFirst && <Tag>Destaque do dia</Tag>}
+      {isFeatured && <Tag>Destaque do dia</Tag>}
       <Tag>{category}</Tag>
     </Infos>
     <Container>
       <Title>{title}</Title>
-      <Image src={assessment} alt="Nota" />
+      <div>
+        <p>{assessment}</p>
+        <img src={starIcon} alt="Estrela" />
+      </div>
     </Container>
     <Description>{description}</Description>
-    <Button to="/perfil">{button}</Button>
+    <Button to={`/perfil/${id}`}>Saiba mais</Button>
   </Card>
 )
 
