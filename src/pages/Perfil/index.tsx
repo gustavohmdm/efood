@@ -35,7 +35,13 @@ const Perfil = () => {
 
   return (
     <>
-      <Header />
+      {restaurant && (
+        <Header
+          capa={restaurant.capa}
+          categoria={restaurant.tipo}
+          titulo={restaurant.titulo}
+        />
+      )}
       <div className="container">
         {restaurant && <FoodList foods={restaurant.cardapio} />}
       </div>

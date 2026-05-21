@@ -4,6 +4,7 @@ import styled from 'styled-components'
 export const Card = styled.div`
   position: relative;
   border: 1px solid #e66767;
+  padding-bottom: 30px;
 `
 
 export const Image = styled.img`
@@ -53,11 +54,13 @@ export const Button = styled(Link)`
   display: inline-block;
   align-items: center;
   padding: 4px;
-  margin-left: 8px;
-  margin-bottom: 8px;
+  margin-top: 20px;
   font-size: 14px;
   background-color: #e66767;
   color: #fff;
   border: none;
   text-decoration: none;
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
 `
