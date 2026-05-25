@@ -29,14 +29,18 @@ const Home = () => {
     fetch('https://api-ebac.vercel.app/api/efood/restaurantes')
       .then((res) => res.json())
       .then((res) => setRestaurants(res))
-  })
+  }, [])
 
   return (
     <>
       <Header />
-      <div className="container">
-        <FoodList restaurants={restaurants} />
-      </div>
+      {restaurants.length === 0 ? (
+        <h3>Carregando...</h3>
+      ) : (
+        <div className="container">
+          <FoodList restaurants={restaurants} />
+        </div>
+      )}
     </>
   )
 }
