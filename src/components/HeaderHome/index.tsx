@@ -1,8 +1,9 @@
 import { Background, Logo, Title } from './styles'
-import backgroundLogo from '../../../assets/images/fundo.png'
-import efoodLogo from '../../../assets/images/logo.png'
 
-const Header = () => (
+import backgroundLogo from '../../assets/images/fundo.png'
+import efoodLogo from '../../assets/images/logo.png'
+
+const HeaderHome = () => (
   <Background style={{ backgroundImage: `url(${backgroundLogo})` }}>
     <Logo src={efoodLogo}></Logo>
     <Title>Viva experiências gastronômicas</Title>
@@ -10,4 +11,4 @@ const Header = () => (
   </Background>
 )
 
-export default Header
+export default HeaderHome

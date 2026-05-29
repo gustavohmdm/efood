@@ -111,6 +111,7 @@ export const ModalContent = styled.div`
       border: none;
       font-size: 14px;
       font-weight: 700;
+      cursor: pointer;
     }
   }
 `

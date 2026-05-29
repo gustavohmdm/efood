@@ -1,6 +1,7 @@
-import { Restaurant } from '../../../pages/Home'
-import Food from '../Food'
 import { List } from './styles'
+
+import { Restaurant } from '../../pages/Home'
+import Food from '../Restaurant'
 
 export type Props = {
   restaurants: Restaurant[]

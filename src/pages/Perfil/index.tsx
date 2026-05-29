@@ -1,16 +1,7 @@
-import Header from '../../components/Perfil/Header'
-import FoodList from '../../components/Perfil/FoodList'
-import { useEffect, useState } from 'react'
+import HeaderPerfil from '../../components/HeaderPerfil'
+import FoodsList from '../../components/FoodsList'
+import { useGetRestaurantPerfilQuery } from '../../services/api'
 import { useParams } from 'react-router-dom'
-
-export interface Cardapio {
-  foto: string
-  preco: number
-  id: number
-  nome: string
-  descricao: string
-  porcao: string
-}
 
 export type Restaurant = {
   id: number
@@ -23,30 +14,36 @@ export type Restaurant = {
   cardapio: Cardapio[]
 }
 
+export type Cardapio = {
+  foto: string
+  preco: number
+  id: number
+  nome: string
+  descricao: string
+  porcao: string
+}
+
 const Perfil = () => {
   const { id } = useParams()
-  const [restaurant, setRestaurant] = useState<Restaurant | null>(null)
 
-  useEffect(() => {
-    fetch(`https://api-ebac.vercel.app/api/efood/restaurantes/${id}`)
-      .then((res) => res.json())
-      .then((res) => setRestaurant(res))
-  }, [id])
+  const { data } = useGetRestaurantPerfilQuery(id!)
 
-  return (
-    <>
-      {restaurant && (
-        <Header
-          capa={restaurant.capa}
-          categoria={restaurant.tipo}
-          titulo={restaurant.titulo}
+  if (data) {
+    return (
+      <>
+        <HeaderPerfil
+          capa={data.capa}
+          categoria={data.tipo}
+          titulo={data.titulo}
         />
-      )}
-      <div className="container">
-        {restaurant && <FoodList foods={restaurant.cardapio} />}
-      </div>
-    </>
-  )
+        <div className="container">
+          <FoodsList foods={data.cardapio} />
+        </div>
+      </>
+    )
+  }
+
+  return <h3>Carregando...</h3>
 }
 
 export default Perfil

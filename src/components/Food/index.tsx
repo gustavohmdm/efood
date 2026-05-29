@@ -1,3 +1,7 @@
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { add, open } from '../../store/reducers/cart'
+
 import {
   Card,
   Image,
@@ -8,15 +12,12 @@ import {
   ModalContent
 } from './styles'
 
-import closeImg from '../../../assets/images/close.png'
-import { useState } from 'react'
+import { Cardapio } from '../../pages/Perfil'
+
+import closeImg from '../../assets/images/close.png'
 
 type Props = {
-  image: string
-  title: string
-  description: string
-  portion: string
-  price: number
+  food: Cardapio
 }
 
 type ModalState = {
@@ -30,7 +31,7 @@ export const formataPreco = (preco = 0) => {
   }).format(preco)
 }
 
-const Food = ({ image, title, description, price, portion }: Props) => {
+const Food = ({ food }: Props) => {
   const [modal, setModal] = useState<ModalState>({
     isVisible: false
   })
@@ -48,50 +49,44 @@ const Food = ({ image, title, description, price, portion }: Props) => {
     return descricao
   }
 
+  const dispatch = useDispatch()
+
+  const addToCart = () => {
+    dispatch(add(food))
+    dispatch(open())
+  }
+
   return (
     <>
       <Card>
-        <Image src={image} alt={title} />
-        <Title>{title}</Title>
-        <Description>{getDescricao(description)}</Description>
-        <Button
-          onClick={() => {
-            setModal({
-              isVisible: true
-            })
-          }}
-        >
+        <Image src={food.foto} alt={food.nome} />
+        <Title>{food.nome}</Title>
+        <Description>{getDescricao(food.descricao)}</Description>
+        <Button onClick={() => setModal({ isVisible: true })}>
           Mais detalhes
         </Button>
       </Card>
       <Modal className={modal.isVisible ? 'visible' : ''}>
         <ModalContent className="container">
-          <img src={image} alt={title} />
+          <img src={food.foto} alt={food.nome} />
           <div>
-            <h3>{title}</h3>
+            <h3>{food.nome}</h3>
             <img
-              onClick={() => {
-                setModal({
-                  isVisible: false
-                })
-              }}
+              onClick={() => setModal({ isVisible: false })}
               src={closeImg}
               alt="Close Icon"
             />
             <p>
-              {description}
+              {food.descricao}
               <br />
-              <span>Serve: {portion} </span>
+              <span>Serve: {food.porcao} </span>
             </p>
-            <button>Adicionar ao carrinho - {formataPreco(price)}</button>
+            <button onClick={addToCart}>
+              Adicionar ao carrinho - {formataPreco(food.preco)}
+            </button>
           </div>
         </ModalContent>
-        <div
-          onClick={() => {
-            closeModal()
-          }}
-          className="overlay"
-        ></div>
+        <div onClick={closeModal} className="overlay"></div>
       </Modal>
     </>
   )

@@ -1,15 +1,7 @@
-import Header from '../../components/Home/Header'
-import FoodList from '../../components/Home/FoodsList'
-import { useEffect, useState } from 'react'
+import { useGetRestaurantQuery } from '../../services/api'
 
-export interface Cardapio {
-  foto: string
-  preco: number
-  id: number
-  nome: string
-  descricao: string
-  porcao: string
-}
+import HeaderHome from '../../components/HeaderHome'
+import RestaurantsList from '../../components/RestaurantsList'
 
 export type Restaurant = {
   id: number
@@ -22,27 +14,30 @@ export type Restaurant = {
   cardapio: Cardapio[]
 }
 
+export type Cardapio = {
+  foto: string
+  preco: number
+  id: number
+  nome: string
+  descricao: string
+  porcao: string
+}
+
 const Home = () => {
-  const [restaurants, setRestaurants] = useState<Restaurant[]>([])
+  const { data } = useGetRestaurantQuery()
 
-  useEffect(() => {
-    fetch('https://api-ebac.vercel.app/api/efood/restaurantes')
-      .then((res) => res.json())
-      .then((res) => setRestaurants(res))
-  }, [])
-
-  return (
-    <>
-      <Header />
-      {restaurants.length === 0 ? (
-        <h3>Carregando...</h3>
-      ) : (
+  if (data) {
+    return (
+      <>
+        <HeaderHome />
         <div className="container">
-          <FoodList restaurants={restaurants} />
+          <RestaurantsList restaurants={data} />
         </div>
-      )}
-    </>
-  )
+      </>
+    )
+  }
+
+  return <h3>Carregando...</h3>
 }
 
 export default Home

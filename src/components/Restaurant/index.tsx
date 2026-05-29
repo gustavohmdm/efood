@@ -10,7 +10,7 @@ import {
 
 import Tag from '../Tag'
 
-import starIcon from '../../../assets/images/star_favorite-[#1499].png'
+import starIcon from '../../assets/images/star_favorite-[#1499].png'
 
 type Props = {
   image: string
@@ -22,7 +22,7 @@ type Props = {
   id: number
 }
 
-const Food = ({
+const Restaurant = ({
   image,
   category,
   title,
@@ -49,4 +49,4 @@ const Food = ({
   </Card>
 )
 
-export default Food
+export default Restaurant
