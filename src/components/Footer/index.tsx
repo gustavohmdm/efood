@@ -1,4 +1,5 @@
 import { Background, Logo, Social, Info } from './styles'
+
 import backgroundFooter from '../../assets/images/rodape.png'
 import efoodLogo from '../../assets/images/logo.png'
 import media from '../../assets/images/redes sociais.png'

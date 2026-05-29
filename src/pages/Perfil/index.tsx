@@ -26,7 +26,7 @@ export type Cardapio = {
 const Perfil = () => {
   const { id } = useParams()
 
-  const { data } = useGetRestaurantPerfilQuery(id!)
+  const { data } = useGetRestaurantPerfilQuery(id ?? '')
 
   if (data) {
     return (
