@@ -27,7 +27,11 @@ const HeaderPerfil = ({ capa, categoria, titulo }: Props): JSX.Element => {
   const dispatch = useDispatch()
 
   const openCart = () => {
-    dispatch(open())
+    if (items.length === 0) {
+      alert('Não há nenhum item no carrinho!')
+    } else {
+      dispatch(open())
+    }
   }
 
   return (
