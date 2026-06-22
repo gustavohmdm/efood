@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom'
+
 import styled from 'styled-components'
+
+import { colors } from '../../styles'
 
 export const Card = styled.div`
   position: relative;
-  border: 1px solid #e66767;
+  border: 1px solid ${colors.red};
   padding-bottom: 30px;
 `
 
@@ -29,7 +32,7 @@ export const Container = styled.div`
 
     p {
       margin-right: 8px;
-      color: #e66767;
+      color: ${colors.red};
       font-size: 18px;
       font-weight: 700;
     }
@@ -39,7 +42,7 @@ export const Container = styled.div`
 export const Title = styled.h2`
   font-size: 18px;
   font-weight: 700;
-  color: #e66767;
+  color: ${colors.red};
 `
 
 export const Description = styled.p`
@@ -47,7 +50,7 @@ export const Description = styled.p`
   font-size: 14px;
   font-weight: 400;
   line-height: 22px;
-  color: #e66767;
+  color: ${colors.red};
 `
 
 export const Button = styled(Link)`
@@ -56,8 +59,8 @@ export const Button = styled(Link)`
   padding: 4px;
   margin-top: 20px;
   font-size: 14px;
-  background-color: #e66767;
-  color: #fff;
+  background-color: ${colors.red};
+  color: ${colors.white};
   border: none;
   text-decoration: none;
   position: absolute;

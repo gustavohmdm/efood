@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
-import excluir from '../../assets/images/excluir.png'
+import { colors } from '../../styles'
+
+import deleteIcon from '../../assets/images/excluir.png'
 
 export const CartContainer = styled.div`
   position: fixed;
@@ -28,9 +30,9 @@ export const Overlay = styled.div`
 `
 
 export const Sidebar = styled.aside`
-  background-color: #e66767;
+  background-color: ${colors.red};
   z-index: 1;
-  padding-top: 32px;
+  padding: 32px 8px 0px 8px;
   max-width: 360px;
   width: 100%;
 `
@@ -40,8 +42,8 @@ export const CartItem = styled.li`
   width: 344px;
   height: 100px;
   position: relative;
-  background-color: #ffebd9;
-  margin: 0px 8px 16px 8px;
+  background-color: ${colors.white};
+  margin-bottom: 16px;
 
   div {
     display: flex;
@@ -58,7 +60,7 @@ export const CartItem = styled.li`
     }
 
     h3 {
-      color: #e66767;
+      color: ${colors.red};
       font-weight: bold;
       font-size: 16px;
       margin-top: 8px;
@@ -67,14 +69,14 @@ export const CartItem = styled.li`
 
     span {
       display: block;
-      color: #e66767;
+      color: ${colors.red};
       font-weight: bold;
       font-size: 14px;
     }
 
     button {
-      background-image: url(${excluir});
-      color: #e66767;
+      background-image: url(${deleteIcon});
+      color: ${colors.red};
       width: 16px;
       height: 16px;
       border: none;
@@ -89,7 +91,7 @@ export const CartItem = styled.li`
 export const Prices = styled.p`
   font-weight: bold;
   font-size: 14px;
-  color: #ffebd9;
+  color: ${colors.white};
   margin-top: 40px;
   margin-left: 8px;
   margin-right: 8px;
@@ -102,14 +104,89 @@ export const Prices = styled.p`
 export const Button = styled.button`
   width: 344px;
   height: 24px;
-  background-color: #ffebd9;
-  color: #e66767;
+  background-color: ${colors.white};
+  color: ${colors.red};
   border: none;
   font-size: 14px;
   font-weight: 700;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  margin-left: 8px;
-  margin-right: 8px;
+  margin-bottom: 8px;
   cursor: pointer;
+`
+
+export const Delivery = styled.h3`
+  color: ${colors.white};
+  margin-left: 8px;
+  margin-bottom: 16px;
+`
+
+export const TotalPrice = styled.h3`
+  color: ${colors.white};
+  margin-left: 8px;
+  margin-bottom: 16px;
+`
+
+export const Success = styled.h3`
+  color: ${colors.white};
+  padding-bottom: 16px;
+  font-weight: 700px;
+  font-size: 16px;
+`
+
+export const Congratulations = styled.p`
+  color: ${colors.white};
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+
+  span {
+    display: block;
+    padding-bottom: 16px;
+  }
+`
+
+export const InputGroup = styled.div`
+  margin-bottom: 8px;
+
+  label {
+    color: ${colors.white};
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    display: block;
+  }
+  input {
+    background-color: ${colors.white};
+    border: none;
+    width: 100%;
+    width: 344px;
+    height: 32px;
+
+    &.big {
+      width: 228px;
+      margin-right: 32px;
+    }
+
+    &.average {
+      width: 155px;
+      margin-right: 34px;
+    }
+    &.average2 {
+      width: 155px;
+    }
+
+    &.small {
+      width: 84px;
+    }
+    &.error {
+      border: 1px solid black;
+    }
+  }
+`
+
+export const ContainerInputGroup = styled.div`
+  display: flex;
+`
+
+export const ContainerButton = styled.div`
+  margin-top: 24px;
 `

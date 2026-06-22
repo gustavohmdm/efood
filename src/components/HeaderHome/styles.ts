@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import { colors } from '../../styles'
+
 export const Background = styled.div`
   width: 100%;
   height: 380px;
@@ -21,7 +23,7 @@ export const Logo = styled.img`
 
 export const Title = styled.h1`
   font-weight: 900;
-  color: #e66767;
+  color: ${colors.red};
 
   &:last-child {
     margin-bottom: 40px;

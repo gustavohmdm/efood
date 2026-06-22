@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import { colors } from '../../styles'
+
 export const Background = styled.div`
   width: 100%;
   height: 300px;
@@ -26,7 +28,7 @@ export const Info = styled.p`
   font-size: 10px;
   font-weight: 400;
   text-align: center;
-  color: #e66767;
+  color: ${colors.red};
 
   &:last-child {
     margin-bottom: 40px;

@@ -1,20 +1,15 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
+
 import { add, open } from '../../store/reducers/cart'
 
-import {
-  Card,
-  Image,
-  Title,
-  Description,
-  Button,
-  Modal,
-  ModalContent
-} from './styles'
-
-import { Cardapio } from '../../pages/Perfil'
+import { parseToBrl } from '../../utils'
 
 import closeImg from '../../assets/images/close.png'
+
+import { Cardapio } from '../../types'
+
+import * as S from './styles'
 
 type Props = {
   food: Cardapio
@@ -22,13 +17,6 @@ type Props = {
 
 type ModalState = {
   isVisible: boolean
-}
-
-export const formataPreco = (preco = 0) => {
-  return new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL'
-  }).format(preco)
 }
 
 const Food = ({ food }: Props) => {
@@ -54,20 +42,21 @@ const Food = ({ food }: Props) => {
   const addToCart = () => {
     dispatch(add(food))
     dispatch(open())
+    setModal({ isVisible: false })
   }
 
   return (
     <>
-      <Card>
-        <Image src={food.foto} alt={food.nome} />
-        <Title>{food.nome}</Title>
-        <Description>{getDescricao(food.descricao)}</Description>
-        <Button onClick={() => setModal({ isVisible: true })}>
+      <S.Card>
+        <S.Image src={food.foto} alt={food.nome} />
+        <S.Title>{food.nome}</S.Title>
+        <S.Description>{getDescricao(food.descricao)}</S.Description>
+        <S.Button onClick={() => setModal({ isVisible: true })}>
           Mais detalhes
-        </Button>
-      </Card>
-      <Modal className={modal.isVisible ? 'visible' : ''}>
-        <ModalContent className="container">
+        </S.Button>
+      </S.Card>
+      <S.Modal className={modal.isVisible ? 'visible' : ''}>
+        <S.ModalContent className="container">
           <img src={food.foto} alt={food.nome} />
           <div>
             <h3>{food.nome}</h3>
@@ -82,12 +71,12 @@ const Food = ({ food }: Props) => {
               <span>Serve: {food.porcao} </span>
             </p>
             <button onClick={addToCart}>
-              Adicionar ao carrinho - {formataPreco(food.preco)}
+              Adicionar ao carrinho - {parseToBrl(food.preco)}
             </button>
           </div>
-        </ModalContent>
+        </S.ModalContent>
         <div onClick={closeModal} className="overlay"></div>
-      </Modal>
+      </S.Modal>
     </>
   )
 }

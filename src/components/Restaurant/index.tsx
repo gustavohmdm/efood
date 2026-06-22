@@ -1,16 +1,8 @@
-import {
-  Card,
-  Image,
-  Container,
-  Infos,
-  Title,
-  Description,
-  Button
-} from './styles'
+import starIcon from '../../assets/images/star_favorite-[#1499].png'
 
 import Tag from '../Tag'
 
-import starIcon from '../../assets/images/star_favorite-[#1499].png'
+import * as S from './styles'
 
 type Props = {
   image: string
@@ -31,22 +23,22 @@ const Restaurant = ({
   isFeatured,
   id
 }: Props) => (
-  <Card>
-    <Image src={image} alt={title} />
-    <Infos>
+  <S.Card>
+    <S.Image src={image} alt={title} />
+    <S.Infos>
       {isFeatured && <Tag>Destaque do dia</Tag>}
       <Tag>{category}</Tag>
-    </Infos>
-    <Container>
-      <Title>{title}</Title>
+    </S.Infos>
+    <S.Container>
+      <S.Title>{title}</S.Title>
       <div>
         <p>{assessment}</p>
         <img src={starIcon} alt="Estrela" />
       </div>
-    </Container>
-    <Description>{description}</Description>
-    <Button to={`/perfil/${id}`}>Saiba mais</Button>
-  </Card>
+    </S.Container>
+    <S.Description>{description}</S.Description>
+    <S.Button to={`/perfil/${id}`}>Saiba mais</S.Button>
+  </S.Card>
 )
 
 export default Restaurant

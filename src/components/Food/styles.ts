@@ -1,7 +1,9 @@
 import styled from 'styled-components'
 
+import { colors } from '../../styles'
+
 export const Card = styled.div`
-  background-color: #e66767;
+  background-color: ${colors.red};
 `
 
 export const Image = styled.img`
@@ -14,14 +16,14 @@ export const Title = styled.h3`
   padding: 0px 8px 8px 8px;
   font-size: 16px;
   font-weight: 900;
-  color: #ffebd9;
+  color: ${colors.white};
 `
 export const Description = styled.p`
   padding: 0px 8px 8px 8px;
   line-height: 22px;
   font-size: 14px;
   font-weight: 400;
-  color: #ffebd9;
+  color: ${colors.white};
 `
 
 export const Button = styled.button`
@@ -31,8 +33,8 @@ export const Button = styled.button`
   margin: 0px 8px 8px 8px;
   font-size: 14px;
   font-weight: 700;
-  background-color: #ffebd9;
-  color: #e66767;
+  background-color: ${colors.white};
+  color: ${colors.red};
   border: none;
   cursor: pointer;
 `
@@ -65,7 +67,7 @@ export const ModalContent = styled.div`
   position: relative;
   z-index: 1;
   display: flex;
-  background-color: #e66767;
+  background-color: ${colors.red};
 
   > img {
     width: 280px;
@@ -107,7 +109,7 @@ export const ModalContent = styled.div`
       margin-top: 16px;
       width: 218px;
       height: 24px;
-      color: #e66767;
+      color: ${colors.red};
       border: none;
       font-size: 14px;
       font-weight: 700;

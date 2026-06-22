@@ -1,19 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux'
+
 import { RootReducer } from '../../store'
 import { open } from '../../store/reducers/cart'
 
-import {
-  BackgroundLogo,
-  Logo,
-  Button,
-  Cart,
-  Presentation,
-  Category,
-  Title
-} from './styles'
-
 import backgroundLogo from '../../assets/images/fundo.png'
 import efoodLogo from '../../assets/images/logo.png'
+
+import * as S from './styles'
 
 type Props = {
   capa: string
@@ -36,15 +29,17 @@ const HeaderPerfil = ({ capa, categoria, titulo }: Props): JSX.Element => {
 
   return (
     <>
-      <BackgroundLogo style={{ backgroundImage: `url(${backgroundLogo})` }}>
-        <Button to="/">Restaurantes</Button>
-        <Logo src={efoodLogo}></Logo>
-        <Cart onClick={openCart}>{items.length} produto(s) no carrinho</Cart>
-      </BackgroundLogo>
-      <Presentation style={{ backgroundImage: `url(${capa})` }}>
-        <Category>{categoria}</Category>
-        <Title>{titulo}</Title>
-      </Presentation>
+      <S.BackgroundLogo style={{ backgroundImage: `url(${backgroundLogo})` }}>
+        <S.Button to="/">Restaurantes</S.Button>
+        <S.Logo src={efoodLogo}></S.Logo>
+        <S.Cart onClick={openCart}>
+          {items.length} produto(s) no carrinho
+        </S.Cart>
+      </S.BackgroundLogo>
+      <S.Presentation style={{ backgroundImage: `url(${capa})` }}>
+        <S.Category>{categoria}</S.Category>
+        <S.Title>{titulo}</S.Title>
+      </S.Presentation>
     </>
   )
 }

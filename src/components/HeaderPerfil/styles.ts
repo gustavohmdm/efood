@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom'
+
 import styled from 'styled-components'
+
+import { colors } from '../../styles'
 
 export const BackgroundLogo = styled.div`
   width: 100%;
@@ -21,7 +24,7 @@ export const Logo = styled.img`
 export const Button = styled(Link)`
   font-size: 18px;
   font-weight: 900;
-  color: #e66767;
+  color: ${colors.red};
   cursor: pointer;
   text-decoration: none;
 `
@@ -29,7 +32,7 @@ export const Button = styled(Link)`
 export const Cart = styled.h2`
   font-size: 18px;
   font-weight: 900;
-  color: #e66767;
+  color: ${colors.red};
   cursor: pointer;
 `
 

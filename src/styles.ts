@@ -1,5 +1,10 @@
 import { createGlobalStyle } from 'styled-components'
 
+export const colors = {
+  red: '#e66767',
+  white: '#ffebd9'
+}
+
 export const GlobalCss = createGlobalStyle`
   * {
     margin: 0;

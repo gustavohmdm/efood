@@ -1,7 +1,6 @@
-import { List } from './styles'
-
-import { Cardapio } from '../../pages/Perfil'
+import { Cardapio } from '../../types'
 import Food from '../Food'
+import { List } from './styles'
 
 export type Props = {
   foods: Cardapio[]
