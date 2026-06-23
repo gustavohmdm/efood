@@ -177,8 +177,9 @@ export const InputGroup = styled.div`
     &.small {
       width: 84px;
     }
+
     &.error {
-      border: 1px solid black;
+      border: 3px solid black;
     }
   }
 `
