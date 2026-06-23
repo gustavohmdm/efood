@@ -179,7 +179,7 @@ export const InputGroup = styled.div`
     }
 
     &.error {
-      border: 3px solid black;
+      border: 2px solid black;
     }
   }
 `
