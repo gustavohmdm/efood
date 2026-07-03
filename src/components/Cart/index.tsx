@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
@@ -31,12 +31,6 @@ const Cart = () => {
 
   const removeItem = (id: number) => {
     dispatch(remove(id))
-  }
-
-  const getTotalPrice = () => {
-    return items.reduce((acumulador, valorAtual) => {
-      return acumulador + (valorAtual.preco ? valorAtual.preco : 0)
-    }, 0)
   }
 
   const form = useFormik({
@@ -116,6 +110,20 @@ const Cart = () => {
       })
     }
   })
+
+  useEffect(() => {
+    if (items.length === 0) {
+      form.resetForm()
+      setIsDelivery(false)
+      setIsPayment(false)
+    }
+  }, [items, form])
+
+  const getTotalPrice = () => {
+    return items.reduce((acumulador, valorAtual) => {
+      return acumulador + (valorAtual.preco ? valorAtual.preco : 0)
+    }, 0)
+  }
 
   const checkInputHasError = (fieldName: string) => {
     const isTouched = fieldName in form.touched
@@ -256,16 +264,23 @@ const Cart = () => {
             <S.ContainerButton>
               <S.Button
                 onClick={async () => {
+                  form.setTouched({
+                    fullName: true,
+                    address: true,
+                    city: true,
+                    cep: true,
+                    number: true
+                  })
                   const errors = await form.validateForm()
-
                   const hasErrors =
                     errors.fullName ||
                     errors.address ||
                     errors.city ||
                     errors.cep ||
                     errors.number
-
-                  if (!hasErrors) {
+                  if (hasErrors) {
+                    alert('Os campos precisam ser preenchidos corretamente!')
+                  } else {
                     setIsDelivery(false)
                     setIsPayment(true)
                   }
@@ -370,9 +385,30 @@ const Cart = () => {
             </S.ContainerInputGroup>
             <S.ContainerButton>
               <S.Button
+                onClick={async () => {
+                  form.setTouched({
+                    cardName: true,
+                    cardNumber: true,
+                    cvv: true,
+                    expiresMonth: true,
+                    expiresYear: true
+                  })
+                  const errors = await form.validateForm()
+                  const hasErrors =
+                    errors.cardName ||
+                    errors.cardNumber ||
+                    errors.cvv ||
+                    errors.expiresMonth ||
+                    errors.expiresYear
+                  if (hasErrors) {
+                    alert('Preencha todos os dados do cartão corretamente!')
+                  } else {
+                    form.submitForm()
+                  }
+                }}
                 disabled={isLoading}
                 title="Clique aqui para finalizar o pagamento"
-                type="submit"
+                type="button"
               >
                 Finalizar pagamento
               </S.Button>
