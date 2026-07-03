@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
@@ -110,14 +110,6 @@ const Cart = () => {
       })
     }
   })
-
-  useEffect(() => {
-    if (items.length === 0) {
-      form.resetForm()
-      setIsDelivery(false)
-      setIsPayment(false)
-    }
-  }, [items, form])
 
   const getTotalPrice = () => {
     return items.reduce((acumulador, valorAtual) => {
